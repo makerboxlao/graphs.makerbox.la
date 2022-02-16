@@ -1,0 +1,391 @@
+
+html
+{
+  font-size: 14px;
+
+  background: #000 no-repeat center center fixed;
+}
+
+@-ms-viewport {
+  width: device-width;
+}
+
+strong
+{
+  font-weight: bold;
+}
+
+body
+{
+  background-color: inherit;
+  -webkit-text-size-adjust: none;
+  -ms-overflow-style: scrollbar;
+  line-height: 1.5em;
+}
+
+ol,
+ul {
+  list-style: none;
+}
+
+ul li {
+  padding-left: 0.325rem;
+}
+
+@media (min-width: 768px) {
+  html {
+    font-size: 16px;
+  }
+}
+
+.container {
+  max-width: 960px;
+}
+
+.intro-header {
+  background-color: rgba( 0, 0, 0, 0.8 );
+  color: #FFF;
+  border-radius: 8px
+}
+
+.waiver {
+  background-color: rgba( 100, 31, 28, 0.5 );
+  color: #FFF;
+  border-radius: 8px
+}
+
+.waiver-ok {
+  background-color: rgba( 0, 71, 4, 0.5 );
+  color: #FFF;
+  border-radius: 8px
+}
+
+.footer-header {
+  background-color: rgba( 0, 0, 0, 0.5 );
+  color: rgba( 255, 255, 255, 0.75 );
+  border-radius: 8px
+}
+
+.card-deck .card {
+  min-width: 220px;
+}
+
+.card-body input
+{
+  width: 100%;
+}
+
+.form-control:disabled, .custom-select:disabled
+{
+  background-color: #b7b9bd;
+  opacity: 1;
+}
+
+.invalid-feedback
+{
+  background-color: rgba( 0, 0, 0, 0.6 );
+  padding: 2px 5px;
+  border-radius: 4px;
+  margin-bottom: 4px;
+}
+
+textarea
+{
+  width: inherit;
+}
+
+.custom-control-input.is-valid~.custom-control-label, .was-validated .custom-control-input:valid~.custom-control-label
+{
+  color: inherit;
+}
+
+#checking
+{
+  opacity: 0.75;
+}
+
+.overlay
+{
+  height: 100vh;
+  width: 100vw;
+  position: fixed;
+  z-index: 999;
+  left: 0;
+  top: 0;
+  background-color: rgb( 0, 0, 0 );
+  background-color: rgba( 0, 0, 0, 0.85 );
+  overflow-x: hidden;
+}
+
+.overlay .content
+{
+  color: rgba( 255, 255, 255, 1 );
+  position: relative;
+  top: 25%;
+  width: 100%;
+  text-align: center;
+  margin-top: 30px;
+}
+
+#scan
+{
+  position:relative;
+  width: 90px;
+  height: 8px;
+  margin: auto;
+}
+
+.scan
+{
+  position:absolute;
+  top:0;
+  background-color:rgba( 0, 0, 0, 0.52 );
+  width:8px;
+  height:8px;
+  animation-name:bounce_scan;
+    -o-animation-name:bounce_scan;
+    -ms-animation-name:bounce_scan;
+    -webkit-animation-name:bounce_scan;
+    -moz-animation-name:bounce_scan;
+  animation-duration:1.5s;
+    -o-animation-duration:1.5s;
+    -ms-animation-duration:1.5s;
+    -webkit-animation-duration:1.5s;
+    -moz-animation-duration:1.5s;
+  animation-iteration-count:infinite;
+    -o-animation-iteration-count:infinite;
+    -ms-animation-iteration-count:infinite;
+    -webkit-animation-iteration-count:infinite;
+    -moz-animation-iteration-count:infinite;
+  animation-direction:normal;
+    -o-animation-direction:normal;
+    -ms-animation-direction:normal;
+    -webkit-animation-direction:normal;
+    -moz-animation-direction:normal;
+  transform:scale(.3);
+    -o-transform:scale(.3);
+    -ms-transform:scale(.3);
+    -webkit-transform:scale(.3);
+    -moz-transform:scale(.3);
+}
+
+#scan_1{
+  left:0;
+  animation-delay:0.6s;
+    -o-animation-delay:0.6s;
+    -ms-animation-delay:0.6s;
+    -webkit-animation-delay:0.6s;
+    -moz-animation-delay:0.6s;
+}
+
+#scan_2{
+  left:10px;
+  animation-delay:0.75s;
+    -o-animation-delay:0.75s;
+    -ms-animation-delay:0.75s;
+    -webkit-animation-delay:0.75s;
+    -moz-animation-delay:0.75s;
+}
+
+#scan_3{
+  left:20px;
+  animation-delay:0.9s;
+    -o-animation-delay:0.9s;
+    -ms-animation-delay:0.9s;
+    -webkit-animation-delay:0.9s;
+    -moz-animation-delay:0.9s;
+}
+
+#scan_4{
+  left:30px;
+  animation-delay:1.05s;
+    -o-animation-delay:1.05s;
+    -ms-animation-delay:1.05s;
+    -webkit-animation-delay:1.05s;
+    -moz-animation-delay:1.05s;
+}
+
+#scan_5{
+  left:40px;
+  animation-delay:1.2s;
+    -o-animation-delay:1.2s;
+    -ms-animation-delay:1.2s;
+    -webkit-animation-delay:1.2s;
+    -moz-animation-delay:1.2s;
+}
+
+#scan_6{
+  left:50px;
+  animation-delay:1.35s;
+    -o-animation-delay:1.35s;
+    -ms-animation-delay:1.35s;
+    -webkit-animation-delay:1.35s;
+    -moz-animation-delay:1.35s;
+}
+
+#scan_7{
+  left:60px;
+  animation-delay:1.5s;
+    -o-animation-delay:1.5s;
+    -ms-animation-delay:1.5s;
+    -webkit-animation-delay:1.5s;
+    -moz-animation-delay:1.5s;
+}
+
+#scan_8{
+  left:70px;
+  animation-delay:1.65s;
+    -o-animation-delay:1.65s;
+    -ms-animation-delay:1.65s;
+    -webkit-animation-delay:1.65s;
+    -moz-animation-delay:1.65s;
+}
+
+#scan_9{
+  left:80px;
+  animation-delay:1.8s;
+    -o-animation-delay:1.8s;
+    -ms-animation-delay:1.8s;
+    -webkit-animation-delay:1.8s;
+    -moz-animation-delay:1.8s;
+}
+
+#scan_10{
+  left:90px;
+  animation-delay:1.94s;
+    -o-animation-delay:1.94s;
+    -ms-animation-delay:1.94s;
+    -webkit-animation-delay:1.94s;
+    -moz-animation-delay:1.94s;
+}
+
+@keyframes bounce_scan{
+  0%{
+    transform:scale(1);
+    background-color:rgba(0,0,0,0.66);
+  }
+
+  100%{
+    transform:scale(.3);
+    background-color:rgba(255,255,255,0.75);
+  }
+}
+
+@-o-keyframes bounce_scan{
+  0%{
+    -o-transform:scale(1);
+    background-color:rgba(0,0,0,0.66);
+  }
+
+  100%{
+    -o-transform:scale(.3);
+    background-color:rgba(255,255,255,0.75);
+  }
+}
+
+@-ms-keyframes bounce_scan{
+  0%{
+    -ms-transform:scale(1);
+    background-color:rgba(0,0,0,0.66);
+  }
+
+  100%{
+    -ms-transform:scale(.3);
+    background-color:rgba(255,255,255,0.75);
+  }
+}
+
+@-webkit-keyframes bounce_scan{
+  0%{
+    -webkit-transform:scale(1);
+    background-color:rgba(0,0,0,0.66);
+  }
+
+  100%{
+    -webkit-transform:scale(.3);
+    background-color:rgba(255,255,255,0.75);
+  }
+}
+
+@-moz-keyframes bounce_scan{
+  0%{
+    -moz-transform:scale(1);
+    background-color:rgba(0,0,0,0.66);
+  }
+
+  100%{
+    -moz-transform:scale(.3);
+    background-color:rgba(255,255,255,0.75);
+  }
+}
+
+a.coupon
+{
+  color: #73a6e5;
+  font-size: 1.2em;
+}
+
+.copied
+{
+  display: inline;
+  background: #1266ae;
+  color: #fff;
+  font-weight: bold;
+  padding: 2px 10px;
+  display: none;
+  border-radius: 4px;
+}
+
+::placeholder
+{
+  font-style: italic;
+}
+
+nav.breadcrumb
+{
+  background-color: transparent;
+  float: right;
+  color: #6c757d;
+}
+
+.gauge-container > .gauge > .dial {
+  stroke: #334455;
+  stroke-width: 8;
+  stroke-linecap: round;
+}
+
+.gauge-container.red > .gauge > .value {
+  stroke: rgb(181, 79, 80);
+  stroke-width: 8;
+  stroke-linecap: round;
+}
+
+.gauge-container.green > .gauge > .value {
+  stroke: rgb(159, 185, 95);
+  stroke-width: 8;
+  stroke-linecap: round;
+}
+
+.gauge-container.blue > .gauge > .value {
+  stroke: rgb(90, 131, 186);
+  stroke-width: 8;
+  stroke-linecap: round;
+}
+
+.gauge-container.red > .gauge .value-text {
+  fill: rgb(181, 79, 80);
+  font-weight: bold;
+  font-size: 0.6em;
+}
+
+.gauge-container.green > .gauge .value-text {
+  fill: rgb(159, 185, 95);
+  font-weight: bold;
+  font-size: 0.6em;
+}
+
+.gauge-container.blue > .gauge .value-text {
+  fill: rgb(90, 131, 186);
+  font-weight: bold;
+  font-size: 0.6em;
+}

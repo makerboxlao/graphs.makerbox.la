@@ -1,0 +1,55 @@
+{
+    "name": "mbl/graph",
+    "description": "Makerbox Lao Power graphing",
+    "type": "project",
+    "authors": [
+        {
+            "name": "Derek Spranger",
+            "email": "derek@makerbox.la"
+        }
+    ],
+    "repositories": [
+        {
+            "type": "vcs",
+            "url": "https://git.laodc.com/laodc/config.git"
+        },
+        {
+            "type": "vcs",
+            "url": "https://git.laodc.com/laodc/container.git"
+        },
+        {
+            "type": "vcs",
+            "url": "https://git.laodc.com/laodc/database.git"
+        },
+        {
+            "type": "vcs",
+            "url": "https://git.laodc.com/laodc/errors.git"
+        },
+        {
+            "type": "vcs",
+            "url": "https://git.laodc.com/laodc/functions.git"
+        },
+        {
+            "type": "vcs",
+            "url": "https://git.laodc.com/laodc/router.git"
+        },
+        {
+            "type": "vcs",
+            "url": "https://git.laodc.com/laodc/template.git"
+        }
+    ],
+    "require": {
+        "laodc/config": "^0.1",
+        "laodc/container": "^0.1",
+        "laodc/database": "^0.1",
+        "laodc/errors": "^0.1",
+        "laodc/router": "^0.2",
+        "laodc/template": "^0.2"
+    },
+    "autoload":
+    {
+        "psr-4": {
+            "MBL\\": "lib/"
+        }
+    }
+}
