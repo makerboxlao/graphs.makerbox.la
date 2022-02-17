@@ -1,14 +1,27 @@
 var charts = [];
 
-var
-  axisX = {
-    labelAngle: 160,
-    crosshair: {
-      enabled: true,
-      snapToDataPoint: true,
-      valueFormatString: "DD/MM HH:mm"
-    }
-  };
+var axisX = {
+  labelAngle: 160,
+  crosshair: {
+    enabled: true,
+    snapToDataPoint: true,
+    valueFormatString: "DD/MM HH:mm"
+  }
+};
+
+var energyDailyChart = {
+  animationEnabled: false,
+  theme: 'dark1',
+  toolTip: {
+    shared: true,
+  },
+  axisX: axisX,
+  axisY: {
+    title: 'Energy (daily)',
+    valueFormatString: '#0.#kWh',
+  },
+  data: dataDailyEnergy
+}
 
 var currentChart = {
   animationEnabled: false,
@@ -33,7 +46,7 @@ var powerChart = {
   axisX: axisX,
   axisY: {
     title: 'Power',
-    valueFormatString: '#0.#',
+    valueFormatString: '#0.#W',
   },
   data: dataPower
 }
@@ -46,8 +59,8 @@ var energyChart = {
   },
   axisX: axisX,
   axisY: {
-    title: 'Energy',
-    valueFormatString: '#0.#',
+    title: 'Energy (accumulated)',
+    valueFormatString: '#0.#kWh',
   },
   data: dataEnergy
 }

@@ -19,15 +19,14 @@
         FROM
           mdb_power
         WHERE
-          timestamp >= CURDATE() - INTERVAL 30 DAY
+          timestamp >= CURDATE() - INTERVAL 7 DAY
         ORDER BY
-          timestamp
+          timestamp, phase
         '
       );
 
       $sql_avg = sprintf( '
         SELECT
-          id,
           phase,
           timestamp,
           AVG( voltage ) AS avg_voltage,
@@ -39,11 +38,11 @@
         FROM
           mdb_power
         WHERE
-          timestamp >= CURDATE() - INTERVAL 30 DAY
+          timestamp >= CURDATE() - INTERVAL 7 DAY
         GROUP BY
           phase, timekey
         ORDER BY
-          timekey
+          timekey, phase
         '
       );
 
@@ -53,8 +52,31 @@
         $phases[$record['phase']][] = $record;
       }
 
+      $sql_daily = sprintf( '
+        SELECT
+          phase,
+          DATE( timestamp ) as date,
+          ( MAX( energy ) - MIN( energy ) ) as total_e
+        FROM
+          mdb_power
+        WHERE
+          timestamp >= CURDATE() - INTERVAL 30 DAY
+        GROUP BY
+          phase, date
+        ORDER BY
+          date, phase
+        '
+      );
+
+      $kwh = [];
+      foreach( $db->fetchAll( $sql_daily ) as $record )
+      {
+        $kwh[$record['phase']][] = $record;
+      }
+
       $t
         ->assign( 'phases', $phases )
+        ->assign( 'kwh', $kwh )
         ->render( 'mdb.tpl' );
     }
   }

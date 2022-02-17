@@ -1,15 +1,18 @@
 <include "/includes/header.tpl" />
       <div class="intro-header px-3 py-3 mx-auto mb-3 pb-md-3">
         <div class="py-4 text-center">
-          <p class="lead">Main Distribution Board</p>
+          <p class="lead font-weight-bold">Main Distribution Board</p>
 
           <div class="row">
             <div class="col-4 gauge-container three blue" id="graph-current-1">Phase 1 Active Current</div>
             <div class="col-4 gauge-container three red" id="graph-current-2">Phase 2 Active Current</div>
             <div class="col-4 gauge-container three green" id="graph-current-3">Phase 3 Active Current</div>
           </div>
-          <i>Click and drag to zoom into graph.</i>
+          <i class="font-weight-bold">Last 30 days of Energy usage</i>
           <div class="row">
+            <div class="col-12" id="graph-daily-energy" style="height: 300px; width: 100%;"></div>
+            <div class="col-12 mt-4"><i class="font-weight-bold">Last 7 days of Power usage</i></div>
+            <div class="col-12"><i>Click and drag to zoom into graph.</i></div>
             <div class="col-12" id="graph-energy" style="height: 300px; width: 100%;"></div>
             <div class="col-12" id="graph-voltage" style="height: 200px; width: 100%;"></div>
             <div class="col-12" id="graph-current" style="height: 200px; width: 100%;"></div>
@@ -97,7 +100,7 @@ JS;
             type: 'line',
             name: 'Phase #{$id}',
             legendMarkerType: 'square',
-            yValueFormatString: '#0.#0',
+            yValueFormatString: '#0.#0W',
             xValueType: 'dateTime',
             xValueFormatString: 'DD MMM YY HH:mm',
             dataPoints: [
@@ -130,7 +133,7 @@ JS;
             type: 'stackedArea',
             name: 'Phase #{$id}',
             legendMarkerType: "square",
-            yValueFormatString: "#0.#0",
+            yValueFormatString: "#0.#0kWh",
             xValueType: "dateTime",
             xValueFormatString: "DD MMM YY HH:mm",
             dataPoints: [
@@ -188,11 +191,43 @@ JS;
 ?>
           ];
 
+        dataDailyEnergy = [ <?php
+            foreach( $kwh as $id => $phase )
+            {
+              echo <<< JS
+{
+            type: 'stackedColumn',
+            name: 'Phase #{$id}',
+            legendMarkerType: "square",
+            yValueFormatString: "#0.#0kWh",
+            xValueType: "dateTime",
+            xValueFormatString: "DD MMM YY",
+            dataPoints: [
+
+JS;
+
+              foreach( $phase as $record )
+              {
+                echo <<< JS
+                { x: new Date( '{$record['date']} 00:00' ), y: {$record['total_e']} },
+
+JS;
+                  }
+                  
+                  echo <<< JS
+            ] },
+
+JS;
+            }
+?>
+          ];
+
         window.onload = function () {
           setInterval( function() {
             window.location.reload();
           }, 300000 );
 
+          charts.push( new CanvasJS.Chart( 'graph-daily-energy',  energyDailyChart  ) );
           charts.push( new CanvasJS.Chart( 'graph-voltage', voltageChart ) );
           charts.push( new CanvasJS.Chart( 'graph-current', currentChart ) );
           charts.push( new CanvasJS.Chart( 'graph-power',   powerChart   ) );
@@ -212,7 +247,7 @@ JS;
             {
               max: 100,
               value: {$current},
-              label: function( val ) {return val.toFixed( 2 ) + 'A'; }
+              label: function( val ) { return val.toFixed( 2 ) + 'A'; }
             }
           );
 JS;
