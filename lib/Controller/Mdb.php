@@ -13,7 +13,9 @@
 
       $db = Container::get( 'database' );
 
-      $sql = sprintf( '
+      // If you want to display every minute of data
+      /*
+      $sql_raw = sprintf( '
         SELECT
           *
         FROM
@@ -24,6 +26,7 @@
           timestamp, phase
         '
       );
+      */
 
       $sql_avg = sprintf( '
         SELECT
@@ -52,6 +55,8 @@
         $phases[$record['phase']][] = $record;
       }
 
+      // Grab daily consumption of energy by getting the lowest and highest
+      // levels for the day and subtracting to get the usage
       $sql_daily = sprintf( '
         SELECT
           phase,
@@ -68,15 +73,15 @@
         '
       );
 
-      $kwh = [];
+      $daily = [];
       foreach( $db->fetchAll( $sql_daily ) as $record )
       {
-        $kwh[$record['phase']][] = $record;
+        $daily[$record['phase']][] = $record;
       }
 
       $t
         ->assign( 'phases', $phases )
-        ->assign( 'kwh', $kwh )
+        ->assign( 'daily', $daily )
         ->render( 'mdb.tpl' );
     }
   }

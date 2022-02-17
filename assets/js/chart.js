@@ -19,6 +19,7 @@ var energyDailyChart = {
   axisY: {
     title: 'Energy (daily)',
     valueFormatString: '#0.#kWh',
+    minimum: 0,
   },
   data: dataDailyEnergy
 }

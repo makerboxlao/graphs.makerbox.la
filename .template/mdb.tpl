@@ -192,7 +192,7 @@ JS;
           ];
 
         dataDailyEnergy = [ <?php
-            foreach( $kwh as $id => $phase )
+            foreach( $daily as $id => $phase )
             {
               echo <<< JS
 {
