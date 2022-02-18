@@ -100,7 +100,7 @@ JS;
             type: 'line',
             name: 'Phase #{$id}',
             legendMarkerType: 'square',
-            yValueFormatString: '#0.#0W',
+            yValueFormatString: '#0.#0kW',
             xValueType: 'dateTime',
             xValueFormatString: 'DD MMM YY HH:mm',
             dataPoints: [

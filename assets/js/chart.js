@@ -47,7 +47,7 @@ var powerChart = {
   axisX: axisX,
   axisY: {
     title: 'Power',
-    valueFormatString: '#0.#W',
+    valueFormatString: '#0.#kW',
   },
   data: dataPower
 }

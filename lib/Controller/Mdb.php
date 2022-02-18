@@ -35,7 +35,7 @@
           AVG( voltage ) AS avg_voltage,
           AVG( current ) AS avg_current,
           AVG( energy ) AS avg_energy,
-          AVG( power ) AS avg_power,
+          AVG( power ) / 1000 AS avg_power,
           AVG( pf ) AS avg_pf,
           ROUND( UNIX_TIMESTAMP( timestamp ) / ( 5 * 60 ) ) AS timekey
         FROM
