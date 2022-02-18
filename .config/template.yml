@@ -1,0 +1,5 @@
+---
+template_path: !dir /.template
+compiled_path: !dir /.templatec
+inject: false
+compress: false

@@ -53,20 +53,6 @@ var powerChart = {
   data: dataPower
 }
 
-var energyChart = {
-  animationEnabled: false,
-  theme: 'dark1',
-  toolTip: {
-    shared: true,
-  },
-  axisX: axisX,
-  axisY: {
-    title: 'Energy (accumulated)',
-    valueFormatString: '#0.#kWh',
-  },
-  data: dataEnergy
-}
-
 var pfChart = {
   animationEnabled: false,
   theme: 'dark1',

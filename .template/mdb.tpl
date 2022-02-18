@@ -13,7 +13,6 @@
             <div class="col-12" id="graph-daily-energy" style="height: 300px; width: 100%;"></div>
             <div class="col-12 mt-4"><i class="font-weight-bold">Last 7 days of Power usage</i></div>
             <div class="col-12"><i>Click and drag to zoom into graph.</i></div>
-            <div class="col-12" id="graph-energy" style="height: 300px; width: 100%;"></div>
             <div class="col-12" id="graph-voltage" style="height: 200px; width: 100%;"></div>
             <div class="col-12" id="graph-current" style="height: 200px; width: 100%;"></div>
             <div class="col-12" id="graph-power" style="height: 200px; width: 100%;"></div>
@@ -38,18 +37,18 @@
 
 JS;
 
-                  foreach( $phase as $record )
-                  {
-                    $date = substr( $record['timestamp'], 0, -3 );
-                    $v = $record['avg_voltage'] ?? $record['voltage'];
+              foreach( $phase as $record )
+              {
+                $date = substr( $record['timestamp'], 0, -3 );
+                $v = $record['avg_voltage'] ?? $record['voltage'];
 
-                    echo <<< JS
+                echo <<< JS
                     { x: new Date( '{$date}' ), y: {$v} },
 
 JS;
-                  }
-                  
-                  echo <<< JS
+              }
+              
+              echo <<< JS
               ]
             },
 
@@ -82,9 +81,9 @@ JS;
               { x: new Date( '{$date}' ), y: {$c} },
 
 JS;
-                  }
+              }
                   
-                  echo <<< JS
+              echo <<< JS
             ] },
 
 JS;
@@ -115,42 +114,9 @@ JS;
                 { x: new Date( '{$date}' ), y: {$p} },
 
 JS;
-                  }
+              }
                   
-                  echo <<< JS
-            ] },
-
-JS;
-            }
-?>
-          ];
-
-          dataEnergy = [ <?php
-            foreach( $phases as $id => $phase )
-            {
               echo <<< JS
-{
-            type: 'stackedArea',
-            name: 'Phase #{$id}',
-            legendMarkerType: "square",
-            yValueFormatString: "#0.#0kWh",
-            xValueType: "dateTime",
-            xValueFormatString: "DD MMM YY HH:mm",
-            dataPoints: [
-
-JS;
-
-              foreach( $phase as $record )
-              {
-                $date = substr( $record['timestamp'], 0, -3 );
-                $e = $record['avg_energy'] ?? $record['energy'];
-                echo <<< JS
-                { x: new Date( '{$date}' ), y: {$e} },
-
-JS;
-                  }
-                  
-                  echo <<< JS
             ] },
 
 JS;
@@ -181,9 +147,9 @@ JS;
                 { x: new Date( '{$date}' ), y: {$pf} },
 
 JS;
-                  }
+              }
                   
-                  echo <<< JS
+              echo <<< JS
             ] },
 
 JS;
@@ -212,9 +178,9 @@ JS;
                 { x: new Date( '{$record['date']} 00:00' ), y: {$record['total_e']} },
 
 JS;
-                  }
+              }
                   
-                  echo <<< JS
+              echo <<< JS
             ] },
 
 JS;
@@ -231,7 +197,6 @@ JS;
           charts.push( new CanvasJS.Chart( 'graph-voltage', voltageChart ) );
           charts.push( new CanvasJS.Chart( 'graph-current', currentChart ) );
           charts.push( new CanvasJS.Chart( 'graph-power',   powerChart   ) );
-          charts.push( new CanvasJS.Chart( 'graph-energy',  energyChart  ) );
           charts.push( new CanvasJS.Chart( 'graph-pf',      pfChart      ) );
 
 <?php

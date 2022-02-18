@@ -1,0 +1,10 @@
+base:
+  path: /
+
+routes:
+  - path: /
+    controller: MBL\Controller\Home::index
+    method: GET
+  - path: /mdb
+    controller: MBL\Controller\Mdb::index
+    method: GET
