@@ -48,6 +48,7 @@ var powerChart = {
   axisY: {
     title: 'Power',
     valueFormatString: '#0.#kW',
+    minimum: 0,
   },
   data: dataPower
 }
