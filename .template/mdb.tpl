@@ -4,9 +4,9 @@
           <p class="lead font-weight-bold">Main Distribution Board</p>
 
           <div class="row">
-            <div class="col-4 gauge-container three blue" id="graph-current-1">Phase 1 Active Current</div>
-            <div class="col-4 gauge-container three red" id="graph-current-2">Phase 2 Active Current</div>
-            <div class="col-4 gauge-container three green" id="graph-current-3">Phase 3 Active Current</div>
+            <div class="col-4 gauge-container three blue" id="graph-current-1"><span style="color: rgb(90, 131, 186);">Phase #1</span> Active Current</div>
+            <div class="col-4 gauge-container three red" id="graph-current-2"><span style="color: rgb(181, 79, 80);">Phase #2</span> Active Current</div>
+            <div class="col-4 gauge-container three green" id="graph-current-3"><span style="color: rgb(159, 185, 95);">Phase #3</span> Active Current</div>
           </div>
           <i class="font-weight-bold">Last 30 days of Energy usage</i>
           <div class="row">
@@ -28,8 +28,8 @@
 {
             type: 'line',
             name: 'Phase #{$id}',
-            showInLegend: true,
             legendMarkerType: 'square',
+            showInLegend: true,
             yValueFormatString: '#0.#0V',
             xValueType: 'dateTime',
             xValueFormatString: 'DD MMM YY HH:mm',
@@ -65,6 +65,7 @@ JS;
             type: 'line',
             name: 'Phase #{$id}',
             legendMarkerType: 'square',
+            showInLegend: true,
             yValueFormatString: '#0.#0A',
             xValueType: 'dateTime',
             xValueFormatString: 'DD MMM YY HH:mm',
@@ -99,6 +100,7 @@ JS;
             type: 'line',
             name: 'Phase #{$id}',
             legendMarkerType: 'square',
+            showInLegend: true,
             yValueFormatString: '#0.#0kW',
             xValueType: 'dateTime',
             xValueFormatString: 'DD MMM YY HH:mm',
@@ -132,6 +134,7 @@ JS;
             type: 'line',
             name: 'Phase #{$id}',
             legendMarkerType: 'square',
+            showInLegend: true,
             yValueFormatString: '#0.#0',
             xValueType: 'dateTime',
             xValueFormatString: 'DD MMM YY HH:mm',
@@ -164,7 +167,8 @@ JS;
 {
             type: 'stackedColumn',
             name: 'Phase #{$id}',
-            legendMarkerType: "square",
+            legendMarkerType: 'square',
+            showInLegend: true,
             yValueFormatString: "#0.#0kWh",
             xValueType: "dateTime",
             xValueFormatString: "DD MMM YY",
@@ -219,7 +223,7 @@ JS;
             }
 ?>
 
-          syncCharts(charts, true, true, true);
+          syncCharts( charts, true, true, true );
 
           charts.forEach( ( chart ) => {
             chart.render();

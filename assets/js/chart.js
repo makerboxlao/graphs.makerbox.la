@@ -78,9 +78,6 @@ var voltageChart = {
   toolTip: {
     shared: true,
   },
-  legend: {
-    cursor: "pointer"
-  },
   data: dataVoltages
 }
 
