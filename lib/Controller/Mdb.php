@@ -79,9 +79,32 @@
         $daily[$record['phase']][] = $record;
       }
 
+      // Grab daily consumption of energy by getting the lowest and highest
+      // levels for the day and subtracting to get the usage
+      $sql_monthly = sprintf( '
+        SELECT
+          phase,
+          CONCAT( YEAR( timestamp ), "-", LPAD( MONTH( timestamp ), 2, 0 ) ) as date,
+          ( MAX( energy ) - MIN( energy ) ) AS total_e
+        FROM
+          mdb_power
+        GROUP BY
+          phase, YEAR( timestamp ), MONTH( timestamp )
+        ORDER BY
+          timestamp, phase
+        '
+      );
+
+      $monthly = [];
+      foreach( $db->fetchAll( $sql_monthly ) as $record )
+      {
+        $monthly[$record['phase']][] = $record;
+      }
+
       $t
         ->assign( 'phases', $phases )
         ->assign( 'daily', $daily )
+        ->assign( 'monthly', $monthly )
         ->render( 'mdb.tpl' );
     }
   }

@@ -9,13 +9,44 @@ var axisX = {
   }
 };
 
+var energyMonthlyChart = {
+  animationEnabled: false,
+  theme: 'dark1',
+  toolTip: {
+    shared: true,
+  },
+  axisX: {
+    labelAngle: 160,
+    interval: 1,
+    intervalType: "month",
+    crosshair: {
+      enabled: true,
+      snapToDataPoint: true,
+      valueFormatString: "MMM YYYY"
+    }
+  },
+  axisY: {
+    title: 'Energy (Monthly)',
+    valueFormatString: '#0.#kWh',
+    minimum: 0,
+  },
+  data: dataMonthlyEnergy
+}
+
 var energyDailyChart = {
   animationEnabled: false,
   theme: 'dark1',
   toolTip: {
     shared: true,
   },
-  axisX: axisX,
+  axisX: {
+    labelAngle: 160,
+    crosshair: {
+      enabled: true,
+      snapToDataPoint: true,
+      valueFormatString: "DD/MM/YYYY"
+    }
+  },
   axisY: {
     title: 'Energy (daily)',
     valueFormatString: '#0.#kWh',
